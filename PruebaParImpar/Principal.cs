@@ -19,7 +19,7 @@ namespace PruebaParImpar
             InitializeComponent();
 
             ListaPrincipal = new List<Numero>();
-
+            CargarGrilla();
         }
 
         public void CargarGrilla()
@@ -108,7 +108,7 @@ namespace PruebaParImpar
 
             grilla.Columns["NumeroRepeticiones"].Visible = true;
             grilla.Columns["NumeroRepeticiones"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            grilla.Columns["NumeroRepeticiones"].HeaderText = @"NumRepeticiones";
+            grilla.Columns["NumeroRepeticiones"].HeaderText = @"Num-Repeticiones";
             grilla.Columns["NumeroRepeticiones"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             grilla.Columns["NumeroRepeticiones"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
