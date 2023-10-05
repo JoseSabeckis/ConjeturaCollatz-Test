@@ -10,16 +10,14 @@ using System.Windows.Forms;
 
 namespace PruebaParImpar
 {
-    public partial class Principal : Form
+    public partial class Principal : Form //Test X - Flores Jose Andres ARG
     {
-        Numero NumPrincipal;
         List<Numero> ListaPrincipal;
 
         public Principal()
         {
             InitializeComponent();
 
-            NumPrincipal = new Numero();
             ListaPrincipal = new List<Numero>();
 
         }
