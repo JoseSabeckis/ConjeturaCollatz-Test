@@ -53,24 +53,28 @@ namespace PruebaParImpar
 
             for (long i = desde; i <= hasta; i++)
             {
+                lblTest.Text = $"{i}";
+
                 aux.Principal = $"{i}";
                 aux.Num = i;
                 aux.NumeroRepeticiones = 0;
 
                 for (long x = aux.Num; x != 1;)
                 {
+                    long y = x;
+
                     if (x % 2 == 0) //par
                     {
                         x /= 2;
                         aux.NumeroRepeticiones++;
                         aux.Num = i;
-
+                        lblTestResult.Text = $"{y} / 2 = {x}";
                     }
                     else //impar
                     {
                         x = (x * 3) + 1;
                         aux.NumeroRepeticiones++;
-
+                        lblTestResult.Text = $"{y} * 3 + 1 = {x}";
                     }
                 }
 
@@ -78,10 +82,15 @@ namespace PruebaParImpar
                 ListaPrincipal.Add(aux);
                 CargarGrilla();
                 aux = new Numero();
-
             }
 
             ActivarBotones();
+        }
+
+        public void LabelTest()
+        {
+            lblTest.Text = "-";
+            lblTestResult.Text = "-";
         }
 
         public void FormatearGrilla(DataGridView grilla)
@@ -113,6 +122,7 @@ namespace PruebaParImpar
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpieza();
+            LabelTest();
         }
 
         public void Limpieza()
@@ -148,6 +158,27 @@ namespace PruebaParImpar
             MessageBox.Show("El Numero: Desde Determina El Comienzo De Los Calculos,\nHasta Determina El Final,\n\n" +
                 "Los Calculos Son, Si El Numero Es PAR Se DIVIDE En 2,\nSi Es IMPAR Se Multiplica Por 3 + 1\n" + "Si Divide o Multiplica Seguira Hasta Que Sea '1'\n\n" +
                 "Si El Final Es '1', Pasa Al Siguiente Numero (Varia Hasta Que Numero Se Coloco),\n\n" + "|--- No Existe Un Numero Que No De Como Resultado '1' ---|" + "\n\nNumero Pasando Los MIL, Puede Congelar La PC,\n\nLuego De 8999999999999999999 en Desde y Hasta, Demora.", "Calculo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ckbIgual_CheckedChanged(object sender, EventArgs e)
+        {
+            nudHasta.Value = nudDesde.Value;
+        }
+
+        private void nudDesde_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnControl.PerformClick();
+            }
+        }
+
+        private void nudHasta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnControl.PerformClick();
+            }
         }
     }
 }

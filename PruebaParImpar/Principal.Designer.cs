@@ -39,14 +39,17 @@ namespace PruebaParImpar
             this.btnControl = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblDuda = new System.Windows.Forms.Label();
-            this.btnDuda = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnDuda = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.lblDuda = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTest = new System.Windows.Forms.Label();
+            this.lblTestResult = new System.Windows.Forms.Label();
+            this.ckbIgual = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudDesde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHasta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGrilla)).BeginInit();
@@ -86,7 +89,7 @@ namespace PruebaParImpar
             0,
             0});
             this.nudDesde.Minimum = new decimal(new int[] {
-            2,
+            1,
             0,
             0,
             0});
@@ -98,6 +101,7 @@ namespace PruebaParImpar
             0,
             0,
             0});
+            this.nudDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudDesde_KeyPress);
             // 
             // nudHasta
             // 
@@ -111,7 +115,7 @@ namespace PruebaParImpar
             0,
             0});
             this.nudHasta.Minimum = new decimal(new int[] {
-            4,
+            1,
             0,
             0,
             0});
@@ -123,6 +127,7 @@ namespace PruebaParImpar
             0,
             0,
             0});
+            this.nudHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudHasta_KeyPress);
             // 
             // DgvGrilla
             // 
@@ -175,6 +180,8 @@ namespace PruebaParImpar
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblTestResult);
+            this.panel1.Controls.Add(this.lblTest);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.btnDuda);
@@ -191,51 +198,25 @@ namespace PruebaParImpar
             this.panel1.Size = new System.Drawing.Size(854, 172);
             this.panel1.TabIndex = 8;
             // 
-            // panel3
+            // label7
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.btnLimpiar);
-            this.panel3.Controls.Add(this.lblDuda);
-            this.panel3.Controls.Add(this.btnControl);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(676, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(176, 170);
-            this.panel3.TabIndex = 9;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(389, 150);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(266, 14);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Se Recomienda Colocar El Mismo Num en Ambos\r\n";
             // 
-            // btnLimpiar
+            // label6
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLimpiar.Location = new System.Drawing.Point(21, 18);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(132, 48);
-            this.btnLimpiar.TabIndex = 8;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.DgvGrilla);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 172);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(854, 290);
-            this.panel2.TabIndex = 9;
-            // 
-            // lblDuda
-            // 
-            this.lblDuda.AutoSize = true;
-            this.lblDuda.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuda.Location = new System.Drawing.Point(24, 148);
-            this.lblDuda.Name = "lblDuda";
-            this.lblDuda.Size = new System.Drawing.Size(99, 14);
-            this.lblDuda.TabIndex = 10;
-            this.lblDuda.Text = "Para Saber Tocar";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 154);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(201, 14);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Num Max:  8999999999999999999";
             // 
             // btnDuda
             // 
@@ -248,6 +229,20 @@ namespace PruebaParImpar
             this.btnDuda.UseVisualStyleBackColor = true;
             this.btnDuda.Click += new System.EventHandler(this.btnDuda_Click);
             // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.ckbIgual);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.btnLimpiar);
+            this.panel3.Controls.Add(this.lblDuda);
+            this.panel3.Controls.Add(this.btnControl);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(676, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(176, 170);
+            this.panel3.TabIndex = 9;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -258,25 +253,74 @@ namespace PruebaParImpar
             this.label4.TabIndex = 11;
             this.label4.Text = "\' ? \'";
             // 
-            // label6
+            // btnLimpiar
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 154);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(201, 14);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Num Max:  8999999999999999999";
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLimpiar.Location = new System.Drawing.Point(21, 10);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(132, 48);
+            this.btnLimpiar.TabIndex = 8;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // label7
+            // lblDuda
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(389, 150);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(266, 14);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Se Recomienda Colocar El Mismo Num en Ambos\r\n";
+            this.lblDuda.AutoSize = true;
+            this.lblDuda.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuda.Location = new System.Drawing.Point(24, 148);
+            this.lblDuda.Name = "lblDuda";
+            this.lblDuda.Size = new System.Drawing.Size(99, 14);
+            this.lblDuda.TabIndex = 10;
+            this.lblDuda.Text = "Para Saber Tocar";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.DgvGrilla);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 172);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(854, 290);
+            this.panel2.TabIndex = 9;
+            // 
+            // lblTest
+            // 
+            this.lblTest.AutoSize = true;
+            this.lblTest.BackColor = System.Drawing.Color.Transparent;
+            this.lblTest.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTest.Location = new System.Drawing.Point(20, 19);
+            this.lblTest.Name = "lblTest";
+            this.lblTest.Size = new System.Drawing.Size(17, 34);
+            this.lblTest.TabIndex = 15;
+            this.lblTest.Text = "-";
+            this.lblTest.UseCompatibleTextRendering = true;
+            // 
+            // lblTestResult
+            // 
+            this.lblTestResult.AutoSize = true;
+            this.lblTestResult.BackColor = System.Drawing.Color.Transparent;
+            this.lblTestResult.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestResult.Location = new System.Drawing.Point(20, 47);
+            this.lblTestResult.Name = "lblTestResult";
+            this.lblTestResult.Size = new System.Drawing.Size(17, 34);
+            this.lblTestResult.TabIndex = 16;
+            this.lblTestResult.Text = "-";
+            this.lblTestResult.UseCompatibleTextRendering = true;
+            // 
+            // ckbIgual
+            // 
+            this.ckbIgual.AutoSize = true;
+            this.ckbIgual.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbIgual.Location = new System.Drawing.Point(51, 64);
+            this.ckbIgual.Name = "ckbIgual";
+            this.ckbIgual.Size = new System.Drawing.Size(82, 25);
+            this.ckbIgual.TabIndex = 17;
+            this.ckbIgual.Text = "Ambos";
+            this.ckbIgual.UseVisualStyleBackColor = true;
+            this.ckbIgual.CheckedChanged += new System.EventHandler(this.ckbIgual_CheckedChanged);
             // 
             // Principal
             // 
@@ -325,6 +369,9 @@ namespace PruebaParImpar
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox ckbIgual;
+        public System.Windows.Forms.Label lblTestResult;
+        public System.Windows.Forms.Label lblTest;
     }
 }
 
